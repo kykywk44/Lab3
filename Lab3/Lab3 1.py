@@ -1,17 +1,6 @@
 import time
 
-def all(x):
-    print(x.read())
-    return
-
-def stroke(y):
-    for l in y.readlines():
-        time.sleep(0.4)
-        print(l.strip())
-    return
-
-n = input('''Введите название файла:
-''')
+n = input('Введите название файла:\n')
 
 file = open(f'{n}.txt', encoding='utf=8')
 
@@ -21,8 +10,10 @@ i = input('''Что вы хотите сделать с текстом?
 ''')
 
 if i == '1':
-    all(file)
+    print(file.read())
 if i == '2':
-    stroke(file)
+    for l in file.readlines():
+        time.sleep(0.4)
+        print(l.strip())
 
 file.close
